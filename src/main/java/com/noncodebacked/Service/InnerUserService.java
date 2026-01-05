@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-import static com.noncodebacked.Common.UserConstant.USER_LOGIN_STATE;
+import static com.noncodebacked.Common.constant.UserConstant.USER_LOGIN_STATE;
 
 
 /**

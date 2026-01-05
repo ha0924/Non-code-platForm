@@ -1,4 +1,4 @@
-package com.noncodebacked.Common;
+package com.noncodebacked.Common.constant;
 
 /**
  * 用户常量

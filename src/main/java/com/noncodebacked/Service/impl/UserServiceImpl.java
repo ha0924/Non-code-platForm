@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.noncodebacked.Common.UserConstant.USER_LOGIN_STATE;
+import static com.noncodebacked.Common.constant.UserConstant.USER_LOGIN_STATE;
 
 
 /**
@@ -118,12 +118,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (currentUser == null || currentUser.getId() == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
+
         // 从数据库查询当前用户信息
         long userId = currentUser.getId();
         currentUser = this.getById(userId);
         if (currentUser == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
+
         return currentUser;
     }
 
