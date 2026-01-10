@@ -306,6 +306,9 @@ public class AppController {
         // 获取封装类
         return ResultUtils.success(appService.getAppVO(app));
     }
+
+
+
     /**
      * 应用聊天生成代码（流式 SSE）
      *

@@ -2,12 +2,17 @@ package com.noncodebacked;
 
 import com.noncodebacked.ai.model.HtmlCodeResult;
 import com.noncodebacked.ai.model.MultiFileCodeResult;
+import com.noncodebacked.core.parse.CodeParser;
+import com.noncodebacked.core.parse.HtmlCodeParser;
+import com.noncodebacked.core.parse.MultiFileCodeParser;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class CodeParserTest {
 
+    private static final HtmlCodeParser htmlCodeParser = new HtmlCodeParser();
+    private static final MultiFileCodeParser multiFileCodeParser = new MultiFileCodeParser();
     @Test
     void parseHtmlCode() {
         String codeContent = """
@@ -25,7 +30,8 @@ class CodeParserTest {
 
                 随便写一段描述
                 """;
-        HtmlCodeResult result = CodeParser.parseHtmlCode(codeContent);
+
+        HtmlCodeResult result = htmlCodeParser.parseCode(codeContent);
         assertNotNull(result);
         assertNotNull(result.getHtmlCode());
     }
@@ -58,7 +64,8 @@ class CodeParserTest {
 
                 文件创建完成！
                 """;
-        MultiFileCodeResult result = CodeParser.parseMultiFileCode(codeContent);
+
+        MultiFileCodeResult result = multiFileCodeParser.parseCode(codeContent);
         assertNotNull(result);
         assertNotNull(result.getHtmlCode());
         assertNotNull(result.getCssCode());
